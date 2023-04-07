@@ -7,7 +7,7 @@ module.exports = function (app) {
         const client_id = process.env.GOOGLE_CLIENT_ID;
         const response_type = "code";
         const scope = "openid email";
-        const redirect_uri = process.env.GOOGLE_AUTHORIZED_REDIRECT_URI;
+        const redirect_uri = process.env.GOOGLE_SIGNIN_REDIRECT_URI;
         const nonce = crypto.randomBytes(20).toString("hex");
         const state = "security_token";
 
@@ -21,11 +21,11 @@ module.exports = function (app) {
             }
 
             const response = await axios.post("https://oauth2.googleapis.com/token", {
+                grant_type: "authorization_code",
                 code: req.query.code,
                 client_id: process.env.GOOGLE_CLIENT_ID,
                 client_secret: process.env.GOOGLE_CLIENT_SECRET,
-                redirect_uri: process.env.GOOGLE_AUTHORIZED_REDIRECT_URI,
-                grant_type: "authorization_code"
+                redirect_uri: process.env.GOOGLE_SIGNIN_REDIRECT_URI
             });
 
             let query_string = "?provider=google";

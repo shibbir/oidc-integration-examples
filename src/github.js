@@ -5,7 +5,7 @@ module.exports = function (app) {
         const authorization_endpoint = "https://github.com/login/oauth/authorize";
         const client_id = process.env.GITHUB_CLIENT_ID;
         const scope = "user:email";
-        const redirect_uri = process.env.GITHUB_AUTHORIZED_REDIRECT_URI;
+        const redirect_uri = process.env.GITHUB_SIGNIN_REDIRECT_URI;
         const anti_forgery_token = "security_token";
 
         res.redirect(`${authorization_endpoint}?client_id=${client_id}&scope=${scope}&redirect_uri=${redirect_uri}&state=${anti_forgery_token}`);
@@ -21,10 +21,10 @@ module.exports = function (app) {
                 code: req.query.code,
                 client_id: process.env.GITHUB_CLIENT_ID,
                 client_secret: process.env.GITHUB_CLIENT_SECRET,
-                redirect_uri: process.env.GITHUB_AUTHORIZED_REDIRECT_URI
+                redirect_uri: process.env.GITHUB_SIGNIN_REDIRECT_URI
             }, {
                 headers: {
-                    Accept: "application/json"
+                    accept: "application/json"
                 }
             });
 

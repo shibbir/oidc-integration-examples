@@ -9,9 +9,26 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="shortcut icon" href="images/favicon.png">
     <style>
+        #app {
+            margin: auto;
+            width: 50%;
+            font-family: 'Avenir', Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-align: center;
+        }
+
+        nav {
+            padding: 30px;
+        }
+
+        nav a {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
         #template {
-            width: 500px;
-            word-wrap: break-word;
+            text-align: left;
         }
 
         pre {
@@ -26,11 +43,15 @@
 
 <body>
     <div id="app">
-        <a href="/auth/facebook">Facebook</a>
+        <nav>
+            <a href="/auth/facebook">Facebook</a>
 
-        <a href="/auth/github">GitHub</a>
+            <a href="/auth/github">GitHub</a>
 
-        <a href="/auth/google">Google</a>
+            <a href="/auth/google">Google</a>
+
+            <a href="/auth/okta">OKTA</a>
+        </nav>
 
         <div id="template">
             {{#each data}}

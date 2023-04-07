@@ -16,6 +16,7 @@ app.get("/", function (req, res) {
 require("./facebook")(app);
 require("./github")(app);
 require("./google")(app);
+require("./okta")(app);
 
 if (app.settings.env === "development") {
     const fs = require("fs");

@@ -10,7 +10,7 @@ module.exports = function (app) {
         const client_id = process.env.FACEBOOK_CLIENT_ID;
         const scope = "openid";
         const response_type = "code";
-        const redirect_uri = process.env.FACEBOOK_AUTHORIZED_REDIRECT_URI;
+        const redirect_uri = process.env.FACEBOOK_SIGNIN_REDIRECT_URI;
         const code_challenge_method = "S256";
         const nonce = crypto.randomBytes(20).toString("hex");
         const code_challenge = base64url.encode(crypto.createHash("sha256").update(code_verifier).digest());
@@ -26,10 +26,10 @@ module.exports = function (app) {
 
             const response = await axios.get("https://graph.facebook.com/oauth/access_token", {
                 params: {
-                    client_id: process.env.FACEBOOK_CLIENT_ID,
-                    redirect_uri: process.env.FACEBOOK_AUTHORIZED_REDIRECT_URI,
+                    code: req.query.code,
                     code_verifier: code_verifier,
-                    code: req.query.code
+                    client_id: process.env.FACEBOOK_CLIENT_ID,
+                    redirect_uri: process.env.FACEBOOK_SIGNIN_REDIRECT_URI
                 }
             });
 
