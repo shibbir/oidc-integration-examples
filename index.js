@@ -1,22 +1,4 @@
-const path = require("path");
-const express = require("express");
-
-require("dotenv").config();
-
-const app = express();
-
-app.set("port", process.env.PORT);
-app.use(express.static(`${__dirname}/views`));
-app.set("views", path.join(process.cwd(), "src/views"));
-
-app.get("/", function (req, res) {
-    res.render("index");
-});
-
-require("./facebook")(app);
-require("./github")(app);
-require("./google")(app);
-require("./okta")(app);
+const app = require("./src/express");
 
 if (app.settings.env === "development") {
     const fs = require("fs");
@@ -33,3 +15,5 @@ if (app.settings.env === "development") {
         console.info(`Server running on port ${app.get("port")} in ${app.settings.env} mode...`);
     });
 }
+
+module.exports = app;

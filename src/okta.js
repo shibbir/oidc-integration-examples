@@ -45,7 +45,6 @@ module.exports = function (app) {
 
             res.redirect(`/${query_string}`);
         } catch (err) {
-            console.error(err);
             next(err);
         }
     });
