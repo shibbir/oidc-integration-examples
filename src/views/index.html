@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>OpenID Connect</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <style>
+        #template {
+            width: 500px;
+            word-wrap: break-word;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
+            white-space: -pre-wrap;
+            white-space: -o-pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <a href="/auth/facebook">Facebook</a>
+
+        <a href="/auth/github">GitHub</a>
+
+        <a href="/auth/google">Google</a>
+
+        <div id="template">
+            {{#each data}}
+                <pre><b>{{@key}}</b>: {{this}}</pre>
+            {{/each}}
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+
+    <script>
+        const data = {};
+        const queryParams = new URLSearchParams(window.location.search);
+        for (const key of queryParams.keys()) {
+            data[key] = queryParams.get(key);
+        }
+
+        const src = document.getElementById("template").innerHTML;
+        const template = Handlebars.compile(src);
+
+        document.getElementById("template").innerHTML = template({ data });
+    </script>
+</body>
+
+</html>
