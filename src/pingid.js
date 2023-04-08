@@ -14,7 +14,7 @@ module.exports = function (app) {
         const code_challenge_method = "S256";
         const code_challenge = base64url.encode(crypto.createHash("sha256").update(code_verifier).digest());
 
-        res.redirect(`${authorization_url}?client_id=${client_id}&scope=${scope}&response_type=${response_type}&redirect_uri=${redirect_uri}&code_challenge=${code_challenge}&code_challenge_method=${code_challenge_method}&state=${state}`);
+        res.redirect(`${authorization_url}?client_id=${client_id}&scope=${scope}&response_type=${response_type}&redirect_uri=${redirect_uri}&code_challenge=${code_challenge}&code_challenge_method=${code_challenge_method}&state=${state}&prompt=login`);
     });
 
     app.get("/auth/pingid/callback", async function (req, res, next) {
