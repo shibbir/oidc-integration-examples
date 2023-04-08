@@ -1,5 +1,6 @@
 {
-  "name": "openid-connect",
+  "name": "oidc-examples",
+  "version": "0.1.0",
   "packageManager": "yarn@3.4.1",
   "scripts": {
     "start": "pm2 start index.js --watch --no-daemon --name oidc"

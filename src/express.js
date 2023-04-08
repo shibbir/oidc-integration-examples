@@ -11,9 +11,11 @@ app.get("/", function (req, res) {
     res.sendFile("index.html");
 });
 
+require("./discord")(app);
 require("./facebook")(app);
 require("./github")(app);
 require("./google")(app);
 require("./okta")(app);
+require("./pingid")(app);
 
 module.exports = app;

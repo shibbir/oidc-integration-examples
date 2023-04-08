@@ -1,13 +1,14 @@
-# OpenID Connect Demo
+# Federated Authentication Examples
 
-> Code examples of how to authenticate users from different identity providers.
+> Code examples of integration with different federated authentication providers
 
-## Available Examples
+## Available Integration Examples
+- [x] Discord
 - [x] Facebook
 - [x] GitHub
 - [x] Google
 - [x] OKTA
-- [ ] Ping Identity
+- [x] Ping Identity
 
 ## Prerequisite
 You need to have [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/) installed on your machine. You also need to configure HTTPS in your development environment. Details can be found in [here](https://github.com/FiloSottile/mkcert).
@@ -18,6 +19,10 @@ You need to have [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.co
 
 ```bash
 PORT=<value>
+
+DISCORD_CLIENT_ID=<value>
+DISCORD_CLIENT_SECRET=<value>
+DISCORD_SIGNIN_REDIRECT_URI=<value>
 
 FACEBOOK_CLIENT_ID=<value>
 FACEBOOK_SIGNIN_REDIRECT_URI=<value>
@@ -34,6 +39,12 @@ OKTA_APP_DOMAIN=<value>
 OKTA_CLIENT_ID=<value>
 OKTA_SIGNIN_REDIRECT_URI=<value>
 OKTA_SIGNOUT_REDIRECT_URI=<value>
+
+PINGID_CLIENT_ID=<value>
+PINGID_CLIENT_SECRET=<value>
+PINGID_SIGNIN_REDIRECT_URI=<value>
+PINGID_AUTHORIZATION_URL=<value>
+PINGID_TOKEN_ENDPOINT=<value>
 ```
 
 ## Application Bootstrap
