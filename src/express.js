@@ -11,6 +11,7 @@ app.get("/", function (req, res) {
     res.sendFile("index.html");
 });
 
+require("./azure-ad")(app);
 require("./discord")(app);
 require("./facebook")(app);
 require("./github")(app);

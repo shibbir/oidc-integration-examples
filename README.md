@@ -3,6 +3,7 @@
 > Code examples of integration with different federated authentication providers
 
 ## Available Integration Examples
+- [x] Azure AD
 - [x] Discord
 - [x] Facebook
 - [x] GitHub
@@ -19,6 +20,11 @@ You need to have [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.co
 
 ```bash
 PORT=<value>
+
+AZURE_TENANT_ID=<value>
+AZURE_CLIENT_ID=<value>
+AZURE_CLIENT_SECRET=<value>
+AZURE_REDIRECT_URI=<value>
 
 DISCORD_CLIENT_ID=<value>
 DISCORD_CLIENT_SECRET=<value>
@@ -55,4 +61,4 @@ $ yarn start       # development build
 ```
 
 ## License
-<a href="https://opensource.org/licenses/MIT">The MIT License.</a> Copyright &copy; 2023 [Shibbir Ahmed.](https://shibbir.io/)
+<a href="https://opensource.org/licenses/MIT">The MIT License.</a> Copyright &copy; 2025 [Shibbir Ahmed.](https://shibbir.io/)
